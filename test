@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consent Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+        }
+        .consent-popup {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            width: 300px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+        .consent-popup h2 {
+            margin-top: 0;
+        }
+        .consent-popup ul {
+            list-style: none;
+            padding: 0;
+        }
+        .consent-popup ul li {
+            margin-bottom: 10px;
+        }
+        .consent-popup ul li input {
+            margin-right: 10px;
+        }
+        .button-container {
+            display: flex;
+            justify-content: space-between;
+        }
+        .button {
+            padding: 10px 20px;
+            border-radius: 20px;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .button-blue {
+            background-color: blue;
+            color: white;
+        }
+        .button-white {
+            background-color: white;
+            color: blue;
+            border: 2px solid blue;
+        }
+        .button-blue.disabled {
+            background-color: gray;
+            cursor: not-allowed;
+        }
+    </style>
+</head>
+<body>
+    <div class="consent-popup">
+        <h2>Consent Form</h2>
+        <ul>
+            <li><input type="checkbox" class="consent-checkbox"> I agree to the terms and conditions</li>
+            <li><input type="checkbox" class="consent-checkbox"> I agree to the privacy policy</li>
+            <li><input type="checkbox" class="consent-checkbox"> I agree to receive newsletters</li>
+        </ul>
+        <div class="button-container">
+            <button class="button button-white" onclick="window.location.href='https://example.com/white-button'">Cancel</button>
+            <button class="button button-blue disabled" id="continue-button" disabled>Continue</button>
+        </div>
+    </div>
+
+    <script>
+        const checkboxes = document.querySelectorAll('.consent-checkbox');
+        const continueButton = document.getElementById('continue-button');
+
+        checkboxes.forEach(checkbox => {
+            checkbox.addEventListener('change', () => {
+                const allChecked = Array.from(checkboxes).every(cb => cb.checked);
+                if (allChecked) {
+                    continueButton.classList.remove('disabled');
+                    continueButton.disabled = false;
+                    continueButton.onclick = () => window.location.href = 'https://example.com/blue-button';
+                } else {
+                    continueButton.classList.add('disabled');
+                    continueButton.disabled = true;
+                    continueButton.onclick = null;
+                }
+            });
+        });
+    </script>
+</body>
+</html>
