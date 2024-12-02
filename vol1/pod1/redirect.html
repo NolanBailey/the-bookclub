@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Bookclub | Volume 1, Episode 1</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap');
+        
+        body {
+            font-family: 'Playfair Display', serif;
+            background-color: #f9f9f9;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+        header {
+            background-color: #002fff;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 3em;
+            font-weight: 700;
+        }
+        header h1 a {
+            color: white;
+            text-decoration: none;
+        }
+        .menu-button {
+            position: absolute;
+            left: 20px;
+            top: 20px;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5em;
+            cursor: pointer;
+        }
+        .menu {
+            display: flex;
+            flex-direction: column;
+            background-color: #002fff;
+            position: fixed;
+            top: 0;
+            left: -250px;
+            width: 250px;
+            height: 100%;
+            text-align: left;
+            padding-top: 60px;
+            transition: left 0.3s ease;
+        }
+        .menu a {
+            color: white;
+            padding: 15px;
+            text-decoration: none;
+            border-bottom: 1px solid #48b6ff;
+        }
+        .menu a:hover {
+            background-color: #48b6ff;
+        }
+        .menu.open {
+            left: 0;
+        }
+        .close-button {
+            position: absolute;
+            right: 20px;
+            top: 20px;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5em;
+            cursor: pointer;
+        }
+        .container {
+            width: 80%;
+            margin: 40px auto;
+        }
+        .podcast {
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+        }
+        .podcast img {
+            width: 150px;
+            height: 150px;
+            border-radius: 10px;
+            margin-right: 20px;
+        }
+        .podcast-content {
+            flex: 1;
+        }
+        .podcast h2 {
+            margin-top: 0;
+            color: #002fff;
+            font-size: 1.5em;
+            font-weight: 700;
+        }
+        .podcast p {
+            line-height: 1.8;
+            font-size: 1.1em;
+        }
+        footer {
+            background-color: #002fff;
+            color: white;
+            text-align: center;
+            padding: 15px 0;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+            box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .consent-popup {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            width: 300px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            position: relative;
+            z-index: 9999;
+        }
+        .consent-popup h2 {
+            margin-top: 0;
+        }
+        .consent-popup ul {
+            list-style: none;
+            padding: 0;
+        }
+        .consent-popup ul li {
+            margin-bottom: 10px;
+        }
+        .consent-popup ul li input {
+            margin-right: 10px;
+        }
+        .button-container {
+            display: flex;
+            justify-content: space-between;
+        }
+        .button {
+            padding: 10px 20px;
+            border-radius: 20px;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .button-blue {
+            background-color: blue;
+            color: white;
+        }
+        .button-white {
+            background-color: white;
+            color: blue;
+            border: 2px solid blue;
+        }
+        .button-blue.disabled {
+            background-color: gray;
+            cursor: not-allowed;
+        }
+    </style>
+    <script>
+        function toggleMenu() {
+            const menu = document.querySelector('.menu');
+            menu.classList.toggle('open');
+        }
+
+
+        checkboxes.forEach(checkbox => {
+            checkbox.addEventListener('change', () => {
+                const allChecked = Array.from(checkboxes).every(cb => cb.checked);
+                if (allChecked) {
+                    continueButton.classList.remove('disabled');
+                    continueButton.disabled = false;
+                    continueButton.onclick = () => window.location.href = 'https://example.com/blue-button';
+                } else {
+                    continueButton.classList.add('disabled');
+                    continueButton.disabled = true;
+                    continueButton.onclick = null;
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+    <header>
+        <button class="menu-button" onclick="toggleMenu()">&#9776;</button>
+        <h1><a href="index.html">The Bookclub</a></h1>
+        <nav class="menu">
+            <button class="close-button" onclick="toggleMenu()">&#10005;</button>
+            <a href="index.html">Home</a>
+            <a href="https://nolanbailey.github.io/the-library">The library</a>
+            <a href="about.html">About</a>
+            <a href="coming_soon.html">Coming Soon</a>
+            <a href="suggest.html">Suggest Book Idea Form</a>
+        </nav>
+    </header>
+    <div class="container">
+        <h1>Recent...</h1>
+        <div class="podcast">
+            <img src="https://lh3.googleusercontent.com/d/1PJToiAkk4-ZlEHH6CD9ELV8ftz08sCkj" alt="Episode 2: Howl's Moving Castle thumbnail">
+            <div class="podcast-content">
+                <h2>Episode 1: Percy Jackson and the Olympians: The Last Olympian</h2>
+                <p>Release Date: to be announced</p>
+            </div>
+        </div>
+    </div>
+    <div class="overlay">
+        <div class="consent-popup">
+            <h2>The podcast you want to access contains spoilers.</h2>
+            <ul>
+                <li><input type="checkbox" class="consent-checkbox"> I understand that the content I want to access, The Bookclub Episode 1, contains major spoilers to the book Percy Jackson and the Olympians: The Last Olympian by Rick Riordan.</li>
+                <li><input type="checkbox" class="consent-checkbox"> I have already read the book.</li>
+                <div class="button-container">
+                    <button class="button button-white" onclick="window.location.href='https://forms.office.com/Pages/ResponsePage.aspx?id=DQSIkWdsW0yxEjajBLZtrQAAAAAAAAAAAAMAACwlX-pUQkZHTjFSUE5WMjBBNDlSRE1OREoyVEk4RS4u'">Refresh My Memory</button>
+                    <button class="button button-blue disabled" id="continue-button" disabled>Continue</button>
+                </div>
+            </div>
+        </div>
+    
+        <script>
+            const checkboxes = document.querySelectorAll('.consent-checkbox');
+            const continueButton = document.getElementById('continue-button');
+    
+            checkboxes.forEach(checkbox => {
+                checkbox.addEventListener('change', () => {
+                    const allChecked = Array.from(checkbox).every(cb => cb.checked);
+                    if (allChecked) {
+                        continueButton.classList.remove('disabled');
+                        continueButton.disabled = false;
+                        continueButton.onclick = () => window.location.href = 'https://';
+                    } else {
+                        continueButton.classList.add('disabled');
+                        continueButton.disabled = true;
+                        continueButton.onclick = null;
+                    }
+                });
+            });
+        </script>
+    <footer>
+        <p>&copy; 2024 Nolan Bailey. All rights reserved.</p>
+    </footer>
+</body>
+</html>
